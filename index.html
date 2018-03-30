@@ -15,24 +15,48 @@
         <div class="container">
                     <h1 class="text-center">{{title}}</h1>
                     <div class="row">
-                            <div class="col-xs-6 col-sm-3" ng-repeat="(x,re) in res" >
+                        <div class="col-6">
+                                <div class="form-group">
+                                        <label for="sel1">Country:</label>
+                                        <select class="form-control" id="sel1" ng-model="search.store">
+                                          <option>Finland</option>
+                                          <option>Estonia</option>
+                                        </select>
+                                      </div>
+                        </div> 
+                        <div class="col-6">
+                                <div class="form-group">
+                                        <label for="sel1">Stock:</label>
+                                        <select class="form-control" id="sel1" ng-model="search.instock">
+                                          <option>True</option>
+                                          <option>False</option>
+                                        </select>
+                                      </div>
+                         
+                    </div>
+                    </div>
+                   
+                
+                        
+                    <div class="row">
+                            <div class="col-xs-6 col-sm-3" ng-repeat="(x,re) in res| filter:{instock:search.instock,store:search.store}" >
                                     <div class="card" >
-                                            <img class="card-img-top" src="{{re.image}}" alt="Card image cap">
+                                            <img style="width:250px;height: 200px;" class="card-img-top" src="{{re.image}}" alt="Card image cap">
                                             <div class="card-body">
                                               <h5 class="card-title">{{re.name}}</h5>
                                               <p class="card-text">{{ re.detail }}</p>
                                               <div> {{re.price|currency:"€" }}</div>
-                                              <a href="#" class="btn btn-primary">{{cartMessage}}</a>
+                                              <a href="#" class="btn btn-primary float-right">{{cartMessage}}</a>
                                             </div>
                                           </div>
                                         </div>
+                                        <br>
                            
               </div>
   <!-- JS Files-->
   <script src="vendor/angular.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.8/angular-material.min.js"></script>
-  <script src="vendor/jquery.slim.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script src="main.js"></script>
 
