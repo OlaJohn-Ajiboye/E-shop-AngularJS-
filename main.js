@@ -1,6 +1,6 @@
 
 
-var eShop = angular.module('eShop',[]);
+var eShop = angular.module('eShop',['ui.bootstrap']);
 
 eShop.controller('mainCtrl',function($scope,$http){
 
@@ -18,8 +18,9 @@ $scope.getProduct = function() {
         console.log($scope.res)
         angular.forEach($scope.res, function (result) {
             
-        console.log(result.name)
+        console.log("NAME: "+result.name)
         $scope.name= result.name;
+        console.log("$nameiiiiiii: "+$scope.name)
            $scope.price= result.price;
            $scope.image =result.image ;
            $scope.detail=result.description ;
@@ -36,3 +37,9 @@ $scope.getProduct = function() {
 }
     
 })
+angular.element(document).ready(function() {
+ 8
+          angular.bootstrap(document, ['eShop']);
+  
+       });
+    

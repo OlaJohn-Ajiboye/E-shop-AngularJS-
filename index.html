@@ -11,30 +11,40 @@
 <!--Body starts-->
 
 <body ng-controller="mainCtrl" ng-init="getProduct()">
-    <div >
-            <h1>{{title}}</h1>
-            <div class="container my-5" ng-repeat="re in res">
-                    <div class="col-md-3" >
-                            <div class="card">
-                              <img src="{{image}}"  class="card-img-top">
-                              <div class="card-body">
-                                <h5 class="card-title">{{ name }}</h5>
-                                <div class="card-title text-muted">{{ detail }}</div>
-                                <div class="card-text">Price : €{{price }}</div>
-                                <div class="row justify-content-end">
-                                  <button class="btn btn-primary">{{cartMessage}}</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>          
-                        </div>
-    </div>
-
-    
+        <div id="app" class="container my-5">
+                <div class="row mb-3">
+                  <div class="col-md-9">
+                    <h1>{{title}}</h1>
+                  </div>
+                  <div class="col-md-3"> 
+                  </div>
+                </div>
+            
+                <div class="row">
+                        <div class="container my-5" ng-repeat="(x,re) in res"  >
+                                <div class="col-md-3" >
+                                        <div class="card"  >
+                                          <img src="{{re.image}}"  class="card-img-top">
+                                          <div class="card-body">
+                                            <h5 class="card-title">{{ re.name }}</h5>
+                                            <div class="card-title text-muted">{{ re.detail }}</div>
+                                            <div class="card-text">Price : €{{re.price }}</div>
+                                            <div class="row justify-content-end">
+                                              <button class="btn btn-primary">{{cartMessage}}</button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>          
+                                    </div>
+                </div>
+              </div>
+                   
   <!-- JS Files-->
   <script src="vendor/angular.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>
   <script src="vendor/jquery.slim.min.js"></script>
   <script src="vendor/bootstrap.min.js"></script>
+  
   <script src="main.js"></script>
   
 
