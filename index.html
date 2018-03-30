@@ -1,0 +1,43 @@
+<html ng-app="eShop">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!--Style sheets-->
+  <link href="vendor/bootstrap.min.css" rel="stylesheet">
+  <link href="index.css" rel="stylesheet">
+</head>
+<!--Body starts-->
+
+<body ng-controller="mainCtrl" ng-init="getProduct()">
+    <div >
+            <h1>{{title}}</h1>
+            <div class="container my-5" ng-repeat="re in res">
+                    <div class="col-md-3" >
+                            <div class="card">
+                              <img src="{{image}}"  class="card-img-top">
+                              <div class="card-body">
+                                <h5 class="card-title">{{ name }}</h5>
+                                <div class="card-title text-muted">{{ detail }}</div>
+                                <div class="card-text">Price : €{{price }}</div>
+                                <div class="row justify-content-end">
+                                  <button class="btn btn-primary">{{cartMessage}}</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>          
+                        </div>
+    </div>
+
+    
+  <!-- JS Files-->
+  <script src="vendor/angular.js"></script>
+  <script src="vendor/jquery.slim.min.js"></script>
+  <script src="vendor/bootstrap.min.js"></script>
+  <script src="main.js"></script>
+  
+
+</body>
+
+</html>
