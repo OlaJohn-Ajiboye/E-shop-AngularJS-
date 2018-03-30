@@ -21,7 +21,7 @@
                                             <div class="card-body">
                                               <h5 class="card-title">{{re.name}}</h5>
                                               <p class="card-text">{{ re.detail }}</p>
-                                              <div> €{{re.price }}</div>
+                                              <div> {{re.price|currency:"€" }}</div>
                                               <a href="#" class="btn btn-primary">{{cartMessage}}</a>
                                             </div>
                                           </div>

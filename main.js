@@ -1,5 +1,3 @@
-
-
 var eShop = angular.module('eShop',['ui.bootstrap']);
 
 eShop.controller('mainCtrl',function($scope,$http){
@@ -7,6 +5,7 @@ eShop.controller('mainCtrl',function($scope,$http){
 $scope.products='';
 $scope.title = 'Erply-Eshop';
 $scope.cartMessage = 'Add to Cart';
+$scope.price = 20;
 
 $scope.getProduct = function() {
         console.log("Trying to get product");
@@ -37,9 +36,3 @@ $scope.getProduct = function() {
 }
     
 })
-angular.element(document).ready(function() {
- 8
-          angular.bootstrap(document, ['eShop']);
-  
-       });
-    
