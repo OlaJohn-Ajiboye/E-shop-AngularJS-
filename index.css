@@ -1,3 +1,14 @@
-img{
-   
+.card img{
+    height: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.card h5{
+    cursor:pointer;
+}
+
+.card{
+    max-height: 350px;
+    max-width: 100%;
 }

@@ -12,20 +12,21 @@
 <!--Body starts-->
 
 <body ng-controller="mainCtrl" ng-init="getProduct()">
+    
         <div class="container">
             <br>
                     <h1 class="text-center">{{title}}</h1>
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-5">
                                 <div class="form-group">
-                                        <label for="sel1">Filter by Country:</label>
-                                        <select class="form-control" id="sel1" ng-model="search.store">
+                                        <label  for="sel1">Filter by Country:</label>
+                                        <select class="form-control" id="sel1" placeholder="Password" ng-model="search.store" >
                                           <option>Finland</option>
                                           <option>Estonia</option>
                                         </select>
                                       </div>
                         </div> 
-                        <div class="col-6">
+                        <div class="col-5">
                                 <div class="form-group">
                                         <label for="sel1">Filter by Stock:</label>
                                         <select class="form-control" id="sel1" ng-model="search.instock" >
@@ -40,10 +41,10 @@
                 
                         
                     <div class="row">
-                            <div class="col-xs-6 col-sm-3" ng-repeat="(x,re) in res| filter:{instock:search.instock,store:search.store}" >
-                                    <div class="card" >
-                                            <img style="width:250px;height: 200px;" class="card-img-top img-fluid" src="{{re.image}}" alt="Card image cap">
-                                            <div class="card-body">
+                            <div class=" col-xs-6 col-sm-3 py-2 " ng-repeat="(x,re) in res| filter:{instock:search.instock,store:search.store}" >
+                                    <div layout="column" style="margin:auto" class="card  border-primary " >
+                                            <img  class="card-img-top img-fluid" src="{{re.image}}" alt="Card image cap">
+                                            <div class="card-body ">
                                               <h5 class="card-title">{{re.name}}</h5>
                                               <p class="card-text">{{ re.detail }}</p>
                                               <div> {{re.price|currency:"€" }}</div>
@@ -52,7 +53,7 @@
                                           </div>
                                         </div>
                                         <br>
-                           
+                                    </div>                      
               </div>
   <!-- JS Files-->
   <script src="vendor/angular.js"></script>
