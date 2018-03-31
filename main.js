@@ -39,14 +39,29 @@ $http({
     url: 'https://erply-challenge.herokuapp.com/list?AUTH=fae7b9f6-6363-45a1-a9c9-3def2dae206d'
   }).then(function succesCallBack(response){
     $scope.res = response.data;
+    var res = $scope.res;
+    
     console.log( $scope.res);
-    var i = 0;
-    for(var i=1; i< $scope.res.length;i++) {
-        if ($scope.res.id[i] == id){
-            return $scope.res.description;
-        }
-    }
- 
-})
-}
+     
+
+    angular.forEach($scope.res, function (result) {
+          
+        console.log("desc: "+result.description);
+        $scope.name= result.name;
+           $scope.price= result.price;
+           $scope.image =result.image ;
+           $scope.detail=result.description ;
+           $scope.stock=result.Instock;
+           $scope.id =result.id;
+           for (var i = 0; i < $scope.res.length; i++) {
+            if ($scope.res[i]. $scope.id ==  $scope.id)
+              return $scope.res[i];
+          }
+          return null;
+
+        }); 
+    })
+} 
+      
+
 })
