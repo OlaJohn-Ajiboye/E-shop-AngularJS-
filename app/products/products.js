@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-  .module('eShop.products', ['ngRoute'])
+  .module('eShop.products', ['ngRoute','ngCookies'])
 
   .config([
     '$routeProvider',
@@ -71,7 +71,51 @@ angular
           $scope.productDetails =$scope.filtered[0];
         });
         
-      };
+      }; 
     
     },
+    
+  ])
+  .controller('cartCtrl', [
+    '$scope',
+    '$http',
+    '$routeParams',
+    '$cookies',
+    function($scope, $http,$cookies, $routeParams) {
+      $scope.title = 'Product Details';
+
+      $scope.productId =  $routeParams.productId;
+
+      $scope.viewProduct = function() {
+        $http({
+          method: 'GET',
+          url:
+            'https://erply-challenge.herokuapp.com/list?AUTH=fae7b9f6-6363-45a1-a9c9-3def2dae206d',
+        }).then(function succesCallBack(response) {
+          $scope.res = response.data;
+          if ($scope.cart.length === 0){
+            $scope.res.count = 1;
+            $scope.cart.push( $scope.res);
+          } else {
+            var repeat = false;
+            for(var i = 0; i< $scope.cart.length; i++){
+              if($scope.cart[i].id === $routeParams.productId){
+                repeat = true;
+                $scope.cart[i].count +=1;
+              }
+            }
+            if (!repeat) {
+              product.count = 1;
+               $scope.cart.push( $scope.res);	
+            }
+          }
+         
+        
+        });
+        
+      }; 
+    
+    },
+    
   ]);
+

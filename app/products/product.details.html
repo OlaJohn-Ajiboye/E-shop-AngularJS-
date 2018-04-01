@@ -1,12 +1,32 @@
 <div class="container" ng-controller="ProductDetailsCtrl"  >
   <br>
   <h1 class="text-center">{{title}}  </h1>
- 
+ <br><br>
 
   <div class="row" ng-init="viewProduct()">
-    {{ productDetails.name }}
-    <br>
-    
-  </div>
-  <a href="#!/products">Back to Store</a>
+      <div class=" col-xs-6 col-sm-6 py-2 ">
+          <div class="card" style="width: 30rem;height:40rem">
+              <img class="card-img-top" src="{{productDetails.image}}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="font-weight-bold">{{productDetails.name}}</h5>
+                <p class="card-text">{{productDetails.description}}</p>
+                <div class="font-weight-bold">Price : {{productDetails.price|currency:"€" }}</div>
+                <a href="#" class="btn btn-success float-right">Add to Cart</a>
+              </div>
+            </div>
+      </div>
+      <div class=" col-xs-6 col-sm-6 py-2 " ng-init="addItemToCart ()">
+          <div class="card" style="width: 30rem;height:40rem">
+              <img class="card-img-top" src="{{productDetails.image}}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="font-weight-bold">{{productDetails.name}}</h5>
+                <p class="card-text">{{productDetails.description}}</p>
+                <div class="font-weight-bold">Price : {{productDetails.price|currency:"€" }}</div>
+                <a href="#" class="btn btn-success float-right">Add to Cart</a>
+              </div>
+            </div>
+      </div>
+  
 </div>
+<br>
+<a class="btn btn-primary" href="#!/products">Back to Store</a>
