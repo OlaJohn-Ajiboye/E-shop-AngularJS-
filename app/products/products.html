@@ -24,14 +24,14 @@
   </div>
 
   <div class="row">
-    <div class=" col-xs-6 col-sm-3 py-2 " ng-repeat="(x,re) in res| filter:{instock:search.instock,store:search.store}">
+    <div class=" col-xs-6 col-sm-3 py-2 " ng-repeat="(x,product) in products| filter:{instock:search.instock,store:search.store}">
       <div layout="column" style="margin:auto" class="card  border-primary ">
-        <img class="card-img-top img-fluid" src="{{re.image}}" alt="Card image cap">
+        <img class="card-img-top img-fluid" src="{{product.image}}" alt="Card image cap">
         <div class="card-body ">
-          <h5 class="card-title">{{re.name}}</h5>
-          <p class="card-text">{{ re.detail }}</p>
-          <div> {{re.price|currency:"€" }}</div>
-          <a href="#!/product-details/{{ re.id }}" class="btn btn-primary float-right">View details</a>
+          <h5 class="card-title">{{product.name}}</h5>
+          <p class="card-text">{{ product.detail }}</p>
+          <div> {{re.product|currency:"€" }}</div>
+          <a href="#!/product-details/{{ product.id }}" class="btn btn-primary float-right">View details</a>
         </div>
       </div>
     </div>

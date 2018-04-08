@@ -3,7 +3,9 @@
 // Declare app level module which depends on views, and components
 angular.module('eShop', [
   'ngRoute',
-  'eShop.products'
+  'eShop.products',
+  'ngCookies',
+
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
